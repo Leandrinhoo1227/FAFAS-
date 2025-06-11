@@ -84,6 +84,16 @@
       z-index: 1;
       position: relative;
     }
+      .botao-musica {
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      margin-top: 20px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -103,6 +113,10 @@
   <div class="dedication">
     Com carinho, do seu amor eterno, Leandrinho ❤️
   </div>
+  
+  <button class="botao-musica" onclick="tocarMusica()">Tocar música 🎵</button>
+  
+  <audio id="musica" src="musica.mp3"></audio>
 
   <div class="hearts">
     <script>
@@ -117,11 +131,11 @@
       }
     </script>
   </div>
-<button class="btn-musica" onclick="document.getElementById('musica').play()">Tocar música 🎵</button>
-<audio id="musica" loop style="display:none;">
-  <source src="https://raw.githubusercontent.com/Leandrinhoo1227/FAFAS-/edit/main/caminho/para/musica.mp3" type="audio/mpeg" />
-  Seu navegador não suporta áudio.
-</audio>
+<script>
+    function tocarMusica() {
+      document.getElementById("musica").play();
+    }
+  </script>
  
 </body>
 </html>
