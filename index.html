@@ -6,67 +6,121 @@
   <title>Para sempre vou te amar</title>
   <style>
     body {
-      background-color: #fff0f5;
+      margin: 0;
       font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #ff99cc, #ffe6f0);
+      color: #fff;
       text-align: center;
       padding: 20px;
+      background-attachment: fixed;
+      overflow-x: hidden;
     }
+
     h1 {
-      color: #c71585;
-      font-size: 2.5em;
+      font-size: 2.5rem;
+      color: #fff;
+      text-shadow: 2px 2px 4px #00000070;
     }
-    .galeria img {
-      width: 90%;
-      max-width: 350px;
-      margin: 10px;
-      border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin-top: 30px;
     }
-    .decoracao {
-      font-size: 2em;
-      color: #ff1493;
-      margin: 15px 0;
+
+    .gallery img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
     }
-    .botao-musica {
-      background-color: #ff69b4;
-      color: white;
-      border: none;
-      padding: 12px 24px;
-      font-size: 16px;
+
+    .dedication {
+      margin-top: 40px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 1px 1px 2px #00000080;
+    }
+
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      color: #ff4d88;
+      animation: float 6s ease-in infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(0.5);
+        opacity: 0;
+      }
+    }
+
+    .btn-musica {
       margin-top: 20px;
+      background-color: #ff4d88;
+      color: white;
+      padding: 12px 24px;
+      border: none;
       border-radius: 10px;
+      font-size: 16px;
       cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      z-index: 1;
+      position: relative;
     }
   </style>
 </head>
 <body>
+  <h1>Para sempre vou te amar 💖</h1>
 
-  <h1>💖 Para sempre vou te amar 💖</h1>
+  <button class="btn-musica" onclick="document.getElementById('musica').play()">Tocar música 🎵</button>
 
-  <p>Com carinho, do seu amor eterno, Leandrinho ❤️</p>
-
-  <div class="decoracao">❤️💗💖💘💕</div>
-
-  <button class="botao-musica" onclick="tocarMusica()">Tocar música 🎵</button>
-  
-  <audio id="musica" src="musica.mp3"></audio>
-
-  <div class="galeria">
-    <img src="IMG_9421.jpeg" alt="Foto 1"/>
-    <img src="IMG_9207.jpeg" alt="Foto 2"/>
-    <img src="IMG_9181.jpeg" alt="Foto 3"/>
-    <img src="IMG_8197.jpeg" alt="Foto 4"/>
-    <img src="IMG_8496.jpeg" alt="Foto 5"/>
-    <img src="IMG_8912.jpeg" alt="Foto 6"/>
+  <div class="gallery">
+    <img src="IMG_9421.jpeg" alt="Foto 1" />
+    <img src="IMG_9207.jpeg" alt="Foto 2" />
+    <img src="IMG_9181.jpeg" alt="Foto 3" />
+    <img src="IMG_8197.jpeg" alt="Foto 4" />
+    <img src="IMG_8496.jpeg" alt="Foto 5" />
+    <img src="IMG_8912.jpeg" alt="Foto 6" />
   </div>
 
-  <div class="decoracao">💞💘💝💓💖</div>
+  <div class="dedication">
+    Com carinho, do seu amor eterno, Leandrinho ❤️
+  </div>
 
-  <script>
-    function tocarMusica() {
-      document.getElementById("musica").play();
-    }
-  </script>
+  <audio id="musica" loop>
+    <source src="https://dl.dropboxusercontent.com/scl/fi/oa0rmqqik9ntbwhu0gq9j/alianca.mp3?rlkey=bocppqb6sfug5jmn7a6xx7xpm&dl=0" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+  </audio>
 
+  <div class="hearts">
+    <script>
+      for (let i = 0; i < 30; i++) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.textContent = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = Math.random() * 30 + 20 + "px";
+        heart.style.animationDuration = (Math.random() * 5 + 4) + "s";
+        document.querySelector(".hearts").appendChild(heart);
+      }
+    </script>
+  </div>
 </body>
 </html>
