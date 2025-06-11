@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Para sempre vou te amar</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #ff99cc, #ffe6f0);
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      background-attachment: fixed;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #fff;
+      text-shadow: 2px 2px 4px #00000070;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .dedication {
+      margin-top: 40px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 1px 1px 2px #00000080;
+    }
+
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .heart {
+      position: absolute;
+      color: #ff4d88;
+      animation: float 6s ease-in infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(0.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Para sempre vou te amar</h1>
+
+  <div class="gallery">
+    <img src="IMG_9421.jpeg" alt="Foto 1" />
+    <img src="IMG_9207.jpeg" alt="Foto 2" />
+    <img src="IMG_9181.jpeg" alt="Foto 3" />
+    <img src="IMG_8197.jpeg" alt="Foto 4" />
+    <img src="IMG_8496.jpeg" alt="Foto 5" />
+    <img src="IMG_8912.jpeg" alt="Foto 6" />
+  </div>
+
+  <div class="dedication">
+    Com carinho, do seu amor eterno, Leandrinho ❤️
+  </div>
+
+  <div class="hearts">
+    <!-- corações animados -->
+    <script>
+      for (let i = 0; i < 20; i++) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.textContent = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = Math.random() * 30 + 20 + "px";
+        heart.style.animationDuration = (Math.random() * 5 + 4) + "s";
+        document.querySelector(".hearts").appendChild(heart);
+      }
+    </script>
+  </div>
+
+  <!-- Música de fundo (Aliança) -->
+  <audio autoplay loop>
+    <source src="https://dl.dropboxusercontent.com/scl/fi/oa0rmqqik9ntbwhu0gq9j/alianca.mp3?rlkey=bocppqb6sfug5jmn7a6xx7xpm&dl=0" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+  </audio>
+</body>
+</html>
